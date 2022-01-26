@@ -1,0 +1,5 @@
+Import-Module ActiveDirectory
+$anr = "(anr=" + $Name + ")"
+$obj = Get-ADUser -LDAPFilter:$anr -Properties Manager
+$manager = Get-ADUser $obj.Manager -Properties Manager
+$manager

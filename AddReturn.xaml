@@ -1,0 +1,359 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="AddReturn" this:AddReturn.str_ReturnTrackingNumber="testnumber" this:AddReturn.str_UserName="testname" this:AddReturn.str_RequiredAction="Termed User Device Return" this:AddReturn.str_PhoneNumber="test#" this:AddReturn.str_EmailAddress="testemail" this:AddReturn.str_MachineName="testfsblap" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:a="clr-namespace:ActiveDirectoryLibrary;assembly=ActiveDirectoryLibrary" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sma="clr-namespace:System.Management.Automation;assembly=System.Management.Automation" xmlns:this="clr-namespace:" xmlns:ue="clr-namespace:UiPath.Excel;assembly=UiPath.Excel.Activities" xmlns:ueab="clr-namespace:UiPath.Excel.Activities.Business;assembly=UiPath.Excel.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="str_ReturnTrackingNumber" Type="InArgument(x:String)" />
+    <x:Property Name="str_UserName" Type="InArgument(x:String)" />
+    <x:Property Name="str_RequiredAction" Type="InArgument(x:String)" />
+    <x:Property Name="str_PhoneNumber" Type="InArgument(x:String)" />
+    <x:Property Name="str_EmailAddress" Type="InArgument(x:String)" />
+    <x:Property Name="str_MachineName" Type="InArgument(x:String)" />
+    <x:Property Name="io_str_ManagerName" Type="InOutArgument(x:String)" />
+  </x:Members>
+  <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
+  <sap:VirtualizedContainerService.HintSize>696,3727</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Text</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>UiPath.Excel.Activities.Business</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Management.Automation</x:String>
+      <x:String>System.Dynamic</x:String>
+      <x:String>UiPath.ActiveDirectoryDomainServices</x:String>
+      <x:String>UiPath.ActiveDirectoryDomainServices.Activities</x:String>
+      <x:String>ActiveDirectoryLibrary</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>UiPath.ActiveDirectoryDomainServices.Service</x:String>
+      <x:String>CredentialManagement</x:String>
+      <x:String>UiPath.Credentials.Activities</x:String>
+      <x:String>System.ComponentModel</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.CSharp</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Management.Automation</AssemblyReference>
+      <AssemblyReference>UiPath.ActiveDirectoryDomainServices</AssemblyReference>
+      <AssemblyReference>UiPath.ActiveDirectoryDomainServices.Activities</AssemblyReference>
+      <AssemblyReference>ActiveDirectoryLibrary</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>CredentialManagement</AssemblyReference>
+      <AssemblyReference>UiPath.Credentials.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="AddReturn" sap:VirtualizedContainerService.HintSize="706,3662" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ueab:ExcelProcessScopeX DisplayAlerts="{x:Null}" ExistingProcessAction="{x:Null}" FileConflictResolution="{x:Null}" LaunchMethod="{x:Null}" LaunchTimeout="{x:Null}" MacroSettings="{x:Null}" ProcessMode="{x:Null}" ShowExcelWindow="{x:Null}" DisplayName="Excel Process Scope" sap:VirtualizedContainerService.HintSize="664,3570" sap2010:WorkflowViewState.IdRef="ExcelProcessScopeX_1">
+      <ueab:ExcelProcessScopeX.Body>
+        <ActivityAction x:TypeArguments="ui:IExcelProcess">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="ui:IExcelProcess" Name="ExcelProcessScopeTag" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="630,3484" sap2010:WorkflowViewState.IdRef="Sequence_3">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ueab:ExcelApplicationCard Password="{x:Null}" ReadFormatting="{x:Null}" AutoSave="False" CreateNewFile="False" DisplayName="Use Excel File" sap:VirtualizedContainerService.HintSize="588,3392" sap2010:WorkflowViewState.IdRef="ExcelApplicationCard_1" WorkbookPath="https://tfsb.sharepoint.com/sites/it_procedures/Shared Documents/_IT Tracker Files/TFSB_ Return Equipment TRACKING.xlsx">
+              <ueab:ExcelApplicationCard.Body>
+                <ActivityAction x:TypeArguments="ue:IWorkbookQuickHandle">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="ue:IWorkbookQuickHandle" Name="ReturnTracker" />
+                  </ActivityAction.Argument>
+                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="554,3124" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                    <Sequence.Variables>
+                      <Variable x:TypeArguments="x:Int32" Name="int_LastRow" />
+                      <Variable x:TypeArguments="x:String" Name="ps_GetManager" />
+                      <Variable x:TypeArguments="sco:Collection(sma:PSObject)" Name="ps_output" />
+                    </Sequence.Variables>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ueab:FindFirstLastDataRowX FirstRowIndex="{x:Null}" BlankRowsToSkip="1" ConfigureLastRowAs="FirstEmptyRow" DisplayName="Find First/Last Data Row" FirstRowOffset="0" HasHeaders="True" sap:VirtualizedContainerService.HintSize="512,303" sap2010:WorkflowViewState.IdRef="FindFirstLastDataRowX_1" LastRowOffset="0">
+                      <ueab:FindFirstLastDataRowX.ColumnName>
+                        <InArgument x:TypeArguments="x:String">
+                          <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_5">ReturnTracker.Sheet["Equipment Return"].Cell["A1"]</CSharpValue>
+                        </InArgument>
+                      </ueab:FindFirstLastDataRowX.ColumnName>
+                      <ueab:FindFirstLastDataRowX.LastRowIndex>
+                        <OutArgument x:TypeArguments="x:Int32">
+                          <CSharpReference x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpReference`1_1">int_LastRow</CSharpReference>
+                        </OutArgument>
+                      </ueab:FindFirstLastDataRowX.LastRowIndex>
+                      <ueab:FindFirstLastDataRowX.Range>
+                        <InArgument x:TypeArguments="ue:IReadRangeRef">
+                          <CSharpValue x:TypeArguments="ue:IReadRangeRef" sap2010:WorkflowViewState.IdRef="CSharpValue`1_4">ReturnTracker.Sheet["Equipment Return"].Range["A:A"]</CSharpValue>
+                        </InArgument>
+                      </ueab:FindFirstLastDataRowX.Range>
+                    </ueab:FindFirstLastDataRowX>
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="512,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info">
+                      <ui:LogMessage.Message>
+                        <InArgument x:TypeArguments="x:Object">
+                          <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_3">"Last row #: " + int_LastRow.ToString()</CSharpValue>
+                        </InArgument>
+                      </ui:LogMessage.Message>
+                    </ui:LogMessage>
+                    <ueab:WriteCellX DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="512,158" sap2010:WorkflowViewState.IdRef="WriteCellX_1">
+                      <ueab:WriteCellX.Cell>
+                        <InArgument x:TypeArguments="ue:IReadWriteCellRef">
+                          <CSharpValue x:TypeArguments="ue:IReadWriteCellRef" sap2010:WorkflowViewState.IdRef="CSharpValue`1_11">ReturnTracker.Sheet["Equipment Return"].Cell["A"+int_LastRow]</CSharpValue>
+                        </InArgument>
+                      </ueab:WriteCellX.Cell>
+                      <ueab:WriteCellX.Value>
+                        <InArgument x:TypeArguments="x:Object">
+                          <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_12">System.DateTime.Today.ToShortDateString()</CSharpValue>
+                        </InArgument>
+                      </ueab:WriteCellX.Value>
+                    </ueab:WriteCellX>
+                    <ueab:WriteCellX DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="512,158" sap2010:WorkflowViewState.IdRef="WriteCellX_3">
+                      <ueab:WriteCellX.Cell>
+                        <InArgument x:TypeArguments="ue:IReadWriteCellRef">
+                          <CSharpValue x:TypeArguments="ue:IReadWriteCellRef" sap2010:WorkflowViewState.IdRef="CSharpValue`1_13">ReturnTracker.Sheet["Equipment Return"].Cell["B"+int_LastRow]</CSharpValue>
+                        </InArgument>
+                      </ueab:WriteCellX.Cell>
+                      <ueab:WriteCellX.Value>
+                        <InArgument x:TypeArguments="x:Object">
+                          <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_14">"Mark"</CSharpValue>
+                        </InArgument>
+                      </ueab:WriteCellX.Value>
+                    </ueab:WriteCellX>
+                    <ueab:WriteCellX DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="512,158" sap2010:WorkflowViewState.IdRef="WriteCellX_4">
+                      <ueab:WriteCellX.Cell>
+                        <InArgument x:TypeArguments="ue:IReadWriteCellRef">
+                          <CSharpValue x:TypeArguments="ue:IReadWriteCellRef" sap2010:WorkflowViewState.IdRef="CSharpValue`1_15">ReturnTracker.Sheet["Equipment Return"].Cell["C"+int_LastRow]</CSharpValue>
+                        </InArgument>
+                      </ueab:WriteCellX.Cell>
+                      <ueab:WriteCellX.Value>
+                        <InArgument x:TypeArguments="x:Object">
+                          <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_16">str_MachineName</CSharpValue>
+                        </InArgument>
+                      </ueab:WriteCellX.Value>
+                    </ueab:WriteCellX>
+                    <If sap:VirtualizedContainerService.HintSize="512,300" sap2010:WorkflowViewState.IdRef="If_2">
+                      <If.Condition>
+                        <InArgument x:TypeArguments="x:Boolean">
+                          <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_37">System.String.IsNullOrWhiteSpace(io_str_ManagerName)</CSharpValue>
+                        </InArgument>
+                      </If.Condition>
+                      <If.Then>
+                        <Sequence sap:VirtualizedContainerService.HintSize="242,114" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <a:GetManagerEVP out_str_EVPName="{x:Null}" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="GetManagerEVP_1">
+                            <a:GetManagerEVP.out_str_ManagerName>
+                              <OutArgument x:TypeArguments="x:String">
+                                <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_2">io_str_ManagerName</CSharpReference>
+                              </OutArgument>
+                            </a:GetManagerEVP.out_str_ManagerName>
+                            <a:GetManagerEVP.str_UserName>
+                              <InArgument x:TypeArguments="x:String">
+                                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_30">str_UserName</CSharpValue>
+                              </InArgument>
+                            </a:GetManagerEVP.str_UserName>
+                          </a:GetManagerEVP>
+                        </Sequence>
+                      </If.Then>
+                      <If.Else>
+                        <Sequence sap2010:WorkflowViewState.IdRef="Sequence_7">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </Sequence>
+                      </If.Else>
+                    </If>
+                    <ueab:WriteCellX DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="512,158" sap2010:WorkflowViewState.IdRef="WriteCellX_8">
+                      <ueab:WriteCellX.Cell>
+                        <InArgument x:TypeArguments="ue:IReadWriteCellRef">
+                          <CSharpValue x:TypeArguments="ue:IReadWriteCellRef" sap2010:WorkflowViewState.IdRef="CSharpValue`1_31">ReturnTracker.Sheet["Equipment Return"].Cell["G"+int_LastRow]</CSharpValue>
+                        </InArgument>
+                      </ueab:WriteCellX.Cell>
+                      <ueab:WriteCellX.Value>
+                        <InArgument x:TypeArguments="x:Object">
+                          <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_32">io_str_ManagerName</CSharpValue>
+                        </InArgument>
+                      </ueab:WriteCellX.Value>
+                    </ueab:WriteCellX>
+                    <ueab:WriteCellX DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="512,158" sap2010:WorkflowViewState.IdRef="WriteCellX_9">
+                      <ueab:WriteCellX.Cell>
+                        <InArgument x:TypeArguments="ue:IReadWriteCellRef">
+                          <CSharpValue x:TypeArguments="ue:IReadWriteCellRef" sap2010:WorkflowViewState.IdRef="CSharpValue`1_33">ReturnTracker.Sheet["Equipment Return"].Cell["H"+int_LastRow]</CSharpValue>
+                        </InArgument>
+                      </ueab:WriteCellX.Cell>
+                      <ueab:WriteCellX.Value>
+                        <InArgument x:TypeArguments="x:Object">
+                          <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_34">str_UserName</CSharpValue>
+                        </InArgument>
+                      </ueab:WriteCellX.Value>
+                    </ueab:WriteCellX>
+                    <ueab:WriteCellX DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="512,158" sap2010:WorkflowViewState.IdRef="WriteCellX_10">
+                      <ueab:WriteCellX.Cell>
+                        <InArgument x:TypeArguments="ue:IReadWriteCellRef">
+                          <CSharpValue x:TypeArguments="ue:IReadWriteCellRef" sap2010:WorkflowViewState.IdRef="CSharpValue`1_35">ReturnTracker.Sheet["Equipment Return"].Cell["J"+int_LastRow]</CSharpValue>
+                        </InArgument>
+                      </ueab:WriteCellX.Cell>
+                      <ueab:WriteCellX.Value>
+                        <InArgument x:TypeArguments="x:Object">
+                          <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_36">str_ReturnTrackingNumber</CSharpValue>
+                        </InArgument>
+                      </ueab:WriteCellX.Value>
+                    </ueab:WriteCellX>
+                    <ueab:WriteCellX DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="512,158" sap2010:WorkflowViewState.IdRef="WriteCellX_2">
+                      <ueab:WriteCellX.Cell>
+                        <InArgument x:TypeArguments="ue:IReadWriteCellRef">
+                          <CSharpValue x:TypeArguments="ue:IReadWriteCellRef" sap2010:WorkflowViewState.IdRef="CSharpValue`1_8">ReturnTracker.Sheet["Equipment Return"].Cell["K"+int_LastRow]</CSharpValue>
+                        </InArgument>
+                      </ueab:WriteCellX.Cell>
+                      <ueab:WriteCellX.Value>
+                        <InArgument x:TypeArguments="x:Object">
+                          <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_9">str_RequiredAction</CSharpValue>
+                        </InArgument>
+                      </ueab:WriteCellX.Value>
+                    </ueab:WriteCellX>
+                    <If sap:VirtualizedContainerService.HintSize="512,832" sap2010:WorkflowViewState.IdRef="If_1">
+                      <If.Condition>
+                        <InArgument x:TypeArguments="x:Boolean">
+                          <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_10">str_RequiredAction.Equals("Termed User Device Return")</CSharpValue>
+                        </InArgument>
+                      </If.Condition>
+                      <If.Then>
+                        <Sequence sap:VirtualizedContainerService.HintSize="476,646" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ueab:WriteCellX DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="434,158" sap2010:WorkflowViewState.IdRef="WriteCellX_5">
+                            <ueab:WriteCellX.Cell>
+                              <InArgument x:TypeArguments="ue:IReadWriteCellRef">
+                                <CSharpValue x:TypeArguments="ue:IReadWriteCellRef" sap2010:WorkflowViewState.IdRef="CSharpValue`1_17">ReturnTracker.Sheet["Equipment Return"].Cell["I"+int_LastRow]</CSharpValue>
+                              </InArgument>
+                            </ueab:WriteCellX.Cell>
+                            <ueab:WriteCellX.Value>
+                              <InArgument x:TypeArguments="x:Object">
+                                <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_18">str_RequiredAction</CSharpValue>
+                              </InArgument>
+                            </ueab:WriteCellX.Value>
+                          </ueab:WriteCellX>
+                          <ueab:WriteCellX DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="434,158" sap2010:WorkflowViewState.IdRef="WriteCellX_6">
+                            <ueab:WriteCellX.Cell>
+                              <InArgument x:TypeArguments="ue:IReadWriteCellRef">
+                                <CSharpValue x:TypeArguments="ue:IReadWriteCellRef" sap2010:WorkflowViewState.IdRef="CSharpValue`1_19">ReturnTracker.Sheet["Equipment Return"].Cell["V"+int_LastRow]</CSharpValue>
+                              </InArgument>
+                            </ueab:WriteCellX.Cell>
+                            <ueab:WriteCellX.Value>
+                              <InArgument x:TypeArguments="x:Object">
+                                <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_20">str_PhoneNumber</CSharpValue>
+                              </InArgument>
+                            </ueab:WriteCellX.Value>
+                          </ueab:WriteCellX>
+                          <ueab:WriteCellX DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="434,158" sap2010:WorkflowViewState.IdRef="WriteCellX_7">
+                            <ueab:WriteCellX.Cell>
+                              <InArgument x:TypeArguments="ue:IReadWriteCellRef">
+                                <CSharpValue x:TypeArguments="ue:IReadWriteCellRef" sap2010:WorkflowViewState.IdRef="CSharpValue`1_21">ReturnTracker.Sheet["Equipment Return"].Cell["W"+int_LastRow]</CSharpValue>
+                              </InArgument>
+                            </ueab:WriteCellX.Cell>
+                            <ueab:WriteCellX.Value>
+                              <InArgument x:TypeArguments="x:Object">
+                                <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_22">str_EmailAddress</CSharpValue>
+                              </InArgument>
+                            </ueab:WriteCellX.Value>
+                          </ueab:WriteCellX>
+                        </Sequence>
+                      </If.Then>
+                      <If.Else>
+                        <Sequence sap2010:WorkflowViewState.IdRef="Sequence_5">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </Sequence>
+                      </If.Else>
+                    </If>
+                  </Sequence>
+                </ActivityAction>
+              </ueab:ExcelApplicationCard.Body>
+            </ueab:ExcelApplicationCard>
+          </Sequence>
+        </ActivityAction>
+      </ueab:ExcelProcessScopeX.Body>
+    </ueab:ExcelProcessScopeX>
+  </Sequence>
+</Activity>
